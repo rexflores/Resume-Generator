@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Resume</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/resume.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="shortcut icon" type="image/png" href="images/resume.png">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="left_Side">
+                <div class="profileText">
+                    <div class="imgBx">
+                        <img src="{{ url_for('static', filename='images/' + data['img']) }}">
+                    </div>
+                    <h2>{{ data.fullname }}<br>
+                        <span>{{ data.title1 }} ({{ data.title }})</span>
+                    </h2>
+                </div>
+
+                <div class="contactInfo">
+                    <h3 class="title">Contact Info</h3>
+                    <ul>
+                        <li>
+                            <a class="onclick" href="tel:{{ data.contactnumber }}" target="_blank">
+                                <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                <span class="text">{{ data.contactnumber }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="onclick" href="mailto:{{ data.email }}" target="_blank">
+                                <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                <span class="text">{{ data.email }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="onclick" href="{{ data.facebook }}" target="_blank">
+                                <span class="icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                                <span class="text">{{ data.facebook }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="onclick" href="{{ data.github }}" target="_blank">
+                                <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
+                                <span class="text">{{ data.github }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="onclick" href="https://www.google.com/maps/place/{{ data.address }}" target="_blank">
+                                <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                <span class="text">{{ data.address }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="education">
+                    <h3 class="title">Education</h3>
+                    <ul>
+                        <li>
+                            <h5>Class of {{ data.year1 }}</h5>
+                            <h4>Elementary</h4>
+                            <h4>{{ data.school1 }}</h4>
+                        </li>
+                        <li>
+                            <h5>Class of {{ data.year2 }}</h5>
+                            <h4>High School</h4>
+                            <h4>{{ data.school2 }}</h4>
+                        </li>
+                        <li>
+                            <h5>Class of {{ data.year3 }}</h5>
+                            <h4>Senior High School</h4>
+                            <h4>{{ data.school3 }}</h4>
+                        </li>
+                        <li>
+                            <h5>{{ data.year4 }}</h5>
+                            <h4>College</h4>
+                            <h4>{{ data.school4 }}</h4>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="language">
+                    <h3 class="title">Languages</h3>
+                    <ul>
+                        {% for i in range(1, 100) %}
+                        {% if data['lang' + i|string()] %}
+                        <li>
+                            <span class="text">{{ data['lang' + i|string()] }}</span>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="about interest">
+                    <h3 class="title">Interest</h3>
+                    <ul>
+                        {% for i in range(1, 100) %}
+                        {% if data['inter' + i|string()] %}
+                        <li>
+                            <span class="text">{{ data['inter' + i|string()] }}</span>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right_Side">
+                <div class="about">
+                    <h2 class="title2">Profile</h2>
+                    <p>{{ data.obj }}</p>
+                </div>
+
+                <div class="about">
+                    <h2 class="title2">Experience / Organization</h2>
+                    {% for i in range(1, 8) %}
+                    {% if data['comyear' + i|string()] %}
+                    <div class="box">
+                        <div class="year_company">
+                            <h5>{{ data['comyear' + i|string()] }}</h5>
+                            <h5>{{ data['com' + i|string()] }}</h5>
+                        </div>
+                        <div class="text">
+                            <h4>{{ data['compos' + i|string()] }}</h4>
+                            <p>{{ data['comdes' + i|string()] }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="skills">
+                    <h2 class="title2">Professional Skills</h2>
+                    <div class="box">
+                        {% for i in range(1, 100) %}
+                        {% if data['skill' + i|string()] %}
+                        <h4>{{ data['skill' + i|string()] }}</h4>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

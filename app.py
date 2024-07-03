@@ -16,7 +16,7 @@ def resume():
     
     unique_filename = f"{uuid.uuid4().hex}_{file.filename}"
     file_path = os.path.join('static/images', unique_filename)
-    file.save(f'static/images/{file.filename}')
+    file.save(file_path)
     
     form_data['img'] = file.filename
 

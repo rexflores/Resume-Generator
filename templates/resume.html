@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -149,69 +148,4 @@
             </div>
         </div>
     </body>
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/form.css') }}">
-</head>
-
-<body>
-    <h1>Resume</h1>
-    <div>
-        <img src="{{ url_for('static', filename='uploads/' + data['img']) }}" alt="Profile Picture">
-    </div>
-    <div>
-        <h2>Profile</h2>
-        <p>Full Name: {{ data['fullname'] }}</p>
-        <p>Title/Course: {{ data['title1'] }}</p>
-        <p>Status: {{ data['title'] }}</p>
-        <p>Objective: {{ data['obj'] }}</p>
-    </div>
-    <div>
-        <h2>Contact Information</h2>
-        <p>Contact Number: {{ data['contactnumber'] }}</p>
-        <p>Email: {{ data['email'] }}</p>
-        <p>Facebook: {{ data['facebook'] }}</p>
-        <p>Github: {{ data['github'] }}</p>
-        <p>Address: {{ data['address'] }}</p>
-    </div>
-    <div>
-        <h2>Educational Background</h2>
-        <p>Elementary: {{ data['school1'] }} - {{ data['year1'] }}</p>
-        <p>High School: {{ data['school2'] }} - {{ data['year2'] }}</p>
-        <p>Senior High School: {{ data['school3'] }} - {{ data['year3'] }}</p>
-        <p>College: {{ data['school4'] }} - {{ data['year4'] }}</p>
-    </div>
-    <div>
-        <h2>Experience / Organization</h2>
-        {% for i in range(1, experience_count+1) %}
-            <p>Company/Organization: {{ data['com' ~ i] }}</p>
-            <p>Year: {{ data['comyear' ~ i] }}</p>
-            <p>Position: {{ data['compos' ~ i] }}</p>
-            <p>Description: {{ data['comdes' ~ i] }}</p>
-        {% endfor %}
-    </div>
-    <div>
-        <h2>Professional Skills</h2>
-        {% for i in range(1, skill_count+1) %}
-            <p>Skill {{ i }}: {{ data['skill' ~ i] }}</p>
-        {% endfor %}
-    </div>
-    <div>
-        <h2>Interests</h2>
-        {% for i in range(1, interest_count+1) %}
-            <p>Interest {{ i }}: {{ data['inter' ~ i] }}</p>
-        {% endfor %}
-    </div>
-    <div>
-        <h2>Languages</h2>
-        {% for i in range(1, language_count+1) %}
-            <p>Language {{ i }}: {{ data['lang' ~ i] }}</p>
-        {% endfor %}
-    </div>
-</body>
->>>>>>> 7da908a3a8775eb3b07af2548eb87a18c5004829
 </html>

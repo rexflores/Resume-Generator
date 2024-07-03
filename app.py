@@ -14,9 +14,7 @@ def resume():
     form_data = request.form.to_dict()
     file = request.files['img']
     
-    unique_filename = f"{uuid.uuid4().hex}_{file.filename}"
-    file_path = os.path.join('static/images', unique_filename)
-    file.save(file_path)
+    file.save(f'static/images/{file.filename}')
     
     form_data['img'] = file.filename
 

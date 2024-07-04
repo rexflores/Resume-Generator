@@ -12,11 +12,6 @@ def index():
 def resume():
     # Get form data
     form_data = request.form.to_dict()
-    file = request.files['img']
-    
-    file.save(f'static/images/{file.filename}')
-    
-    form_data['img'] = file.filename
 
     return render_template('resume.html', data=form_data)
 

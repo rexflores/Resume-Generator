@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Responsive Resume</title>
+        <title>Resume</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/resume.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/resume.png') }}">
@@ -15,7 +15,6 @@
             <div class="left_Side">
                 <div class="profileText">
                     <h2>{{ data.fullname }}<br>
-                        <span>{{ data.title1 }} ({{ data.title }})</span>
                     </h2>
                 </div>
 
@@ -30,20 +29,14 @@
                         </li>
                         <li>
                             <a class="onclick" href="mailto:{{ data.email }}" target="_blank">
-                                <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                                 <span class="text">{{ data.email }}</span>
                             </a>
                         </li>
                         <li>
-                            <a class="onclick" href="https://www.facebook.com/{{ data.facebook }}" target="_blank">
-                                <span class="icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-                                <span class="text">{{ data.facebook }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="onclick" href="https://github.com/{{ data.github }}" target="_blank">
-                                <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
-                                <span class="text">{{ data.github }}</span>
+                            <a class="onclick" href="{{ data.web }}" target="_blank">
+                                <span class="icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                                <span class="text">{{ data.web }}</span>
                             </a>
                         </li>
                         <li>
@@ -95,7 +88,7 @@
                 </div>
 
                 <div class="about interest">
-                    <h3 class="title">Interest</h3>
+                    <h3 class="title">Interests</h3>
                     <ul>
                         {% for i in range(1, 100) %}
                         {% if data['inter' + i|string()] %}
@@ -115,7 +108,7 @@
                 </div>
 
                 <div class="about">
-                    <h2 class="title2">Experience / Organization</h2>
+                    <h2 class="title2">Work Experience</h2>
                     {% for i in range(1, 8) %}
                     {% if data['comyear' + i|string()] %}
                     <div class="box">

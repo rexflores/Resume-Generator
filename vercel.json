@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/app.py"
+      "source": "/",
+      "destination": "https://github.com/rexflores/Resume-Generator-no_img"
     }
   ]
 }

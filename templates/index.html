@@ -59,50 +59,28 @@
             <section>
                 <h2>Educational Background</h2>
                 <hr>
-                <div>
-                    <strong>Elementary</strong>
+                <div id="educTableBody">
+                    <div>
+                        <label for="educLevel1">Educational Level</label>
+
+                        <select name="educLevel1" id="educLevel1" required>
+                            <option value="Primary">Elementary</option>
+                            <option value="Secondary">High School</option>
+                            <option value="Higher Secondary">Higher Secondary</option>
+                            <option value="Tertiary">Tertiary</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="year1">Year</label>
+                        <input type="text" id="year1" name="year1" placeholder="Enter Year Graduated" required>
+                    </div>
+                    <div>
+                        <label for="school1">School</label>
+                        <input type="text" id="school1" name="school1" placeholder="Enter School" required>
+                    </div>
                 </div>
-                <div>
-                    <label for="year1">Year Graduated</label>
-                    <input type="text" id="year1" name="year1" placeholder="Enter Year Graduated" required>
-                </div>
-                <div>
-                    <label for="school1">School</label>
-                    <input type="text" id="school1" name="school1" placeholder="Enter School" required>
-                </div>
-                <div>
-                    <strong>High School</strong>
-                </div>
-                <div>
-                    <label for="year2">Year Graduated</label>
-                    <input type="text" id="year2" name="year2" placeholder="Enter Year Graduated" required>
-                </div>
-                <div>
-                    <label for="school2">School</label>
-                    <input type="text" id="school2" name="school2" placeholder="Enter School" required>
-                </div>
-                <div>
-                    <strong>Senior High School</strong>
-                </div>
-                <div>
-                    <label for="year3">Year Graduated</label>
-                    <input type="text" id="year3" name="year3" placeholder="Enter Year Graduated" required>
-                </div>
-                <div>
-                    <label for="school3">School</label>
-                    <input type="text" id="school3" name="school3" placeholder="Enter School" required>
-                </div>
-                <div>
-                    <strong>College</strong>
-                </div>
-                <div>
-                    <label for="year4">Year Graduated</label>
-                    <input type="text" id="year4" name="year4" placeholder="Enter Year Graduated" required>
-                </div>
-                <div>
-                    <label for="school4">School</label>
-                    <input type="text" id="school4" name="school4" placeholder="Enter School" required>
-                </div>
+                <button type="button" onclick="addEduc()">Add Educational Background</button>
             </section>
 
             <section>
@@ -126,7 +104,7 @@
                         <textarea id="comdes1" name="comdes1" placeholder="Enter Description" required style="height: 100px; width: 75vh; overflow: auto;"></textarea>
                     </div>
                 </div>
-                <button type="button" onclick="addExperience()">Add Company/Organization</button>
+                <button type="button" onclick="addExperience()">Add Work Experience</button>
             </section>
 
             <section>

@@ -20,6 +20,40 @@ function addExperience() {
     });
 }
 
+let educCounter = 1;
+
+function addEduc() {
+    educCounter++;
+
+    const educTableBody = document.getElementById('educTableBody');
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('educEntry');
+    
+    newDiv.innerHTML = `
+        <div>
+            <label for="educLevel${educCounter}">Educational Level</label>
+            <select name="educLevel${educCounter}" id="educLevel${educCounter}" required>
+                <option value="Primary">Elementary</option>
+                <option value="Secondary">High School</option>
+                <option value="Higher Secondary">Higher Secondary</option>
+                <option value="Tertiary">Tertiary</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div>
+            <label for="year${educCounter}">Year</label>
+            <input type="text" id="year${educCounter}" name="year${educCounter}" placeholder="Enter Year" required>
+        </div>
+        <div>
+            <label for="school${educCounter}">School</label>
+            <input type="text" id="school${educCounter}" name="school${educCounter}" placeholder="Enter School" required>
+        </div>
+    `;
+
+    educTableBody.appendChild(newDiv);
+}
+
+
 var skillCounter = 1;
 function addSkillField() {
     skillCounter++;

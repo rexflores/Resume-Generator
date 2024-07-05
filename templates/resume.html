@@ -55,26 +55,15 @@
         <section class="education">
             <h2>Education</h2>
             <ul>
+                {% for i in range(1, 100) %}
+                {% if data['year' + i|string()] %}
                 <li>
-                    <p>Class of {{ data.year1 }}</p>
-                    <p>Elementary</p>
-                    <p>{{ data.school1 }}</p>
+                    <p>{{ data['year' + i|string()] }}</p>
+                    <p>{{ data['educLevel' + i|string()] }}</p>
+                    <p>{{ data['school' + i|string()] }}</p>
                 </li>
-                <li>
-                    <p>Class of {{ data.year2 }}</p>
-                    <p>High School</p>
-                    <p>{{ data.school2 }}</p>
-                </li>
-                <li>
-                    <p>Class of {{ data.year3 }}</p>
-                    <p>Senior High School</p>
-                    <p>{{ data.school3 }}</p>
-                </li>
-                <li>
-                    <p>Class of {{ data.year4 }}</p>
-                    <p>College</p>
-                    <p>{{ data.school4 }}</p>
-                </li>
+                {% endif %}
+                {% endfor %}
             </ul>
         </section>
 
@@ -106,7 +95,7 @@
 
         <section class="work-experience">
             <h2>Work Experience</h2>
-            {% for i in range(1, 8) %}
+            {% for i in range(1, 100) %}
             {% if data['comyear' + i|string()] %}
             <div class="experience">
                 <div class="year-company">

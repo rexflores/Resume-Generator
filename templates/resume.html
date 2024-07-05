@@ -46,33 +46,34 @@
 
         <section class="education">
             <h2>Education</h2>
+            <div class="educ">
             {% for i in range(1, 100) %}
             {% if data['year' + i|string()] %}
-            <div class="educ">
-                <p>{{ data['year' + i|string()] }}</p>
-                <p>{{ data['educLevel' + i|string()] }}</p>
-                <p>{{ data['school' + i|string()] }}</p>
-            </div>
+                <p class="school">{{ data['school' + i|string()] }}</p>
+                <p class="educLevel">{{ data['educLevel' + i|string()] }}</p>
+                <p class="year">{{ data['year' + i|string()] }}</p>
             {% endif %}
             {% endfor %}
+            </div>
         </section>
 
         <section class="work-experience">
             <h2>Work Experience</h2>
+            <div class="experience">
             {% for i in range(1, 100) %}
             {% if data['comyear' + i|string()] %}
-            <div class="experience">
-                <div class="year-company">
-                    <p>{{ data['comyear' + i|string()] }}</p>
-                    <p>{{ data['com' + i|string()] }}</p>
+                <div class="position-company">
+                    <p class="compos">{{ data['compos' + i|string()] }}</p>
+                    <p class="com">{{ data['com' + i|string()] }}</p>
                 </div>
-                <div class="position-description">
-                    <p>{{ data['compos' + i|string()] }}</p>
-                    <p>{{ data['comdes' + i|string()] }}</p>
+                <div class="year-description">
+                    <p class="comyear">{{ data['comyear' + i|string()] }}</p>
+                    <p class="comdes">{{ data['comdes' + i|string()] }}</p>
                 </div>
-            </div>
             {% endif %}
             {% endfor %}
+            </div>
+            
         </section>
 
         <section class="language">

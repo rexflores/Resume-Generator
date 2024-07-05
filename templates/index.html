@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,251 +12,166 @@
 </head>
 
 <body>
-    <form method="POST" action="resume" enctype="multipart/form-data">
-        <div class="title">
-            <h1>User Information</h1>
-        </div>
-        <table class="profileInfo">
-            <h2>Profile</h2>
-            <hr>
-            <tr>
-                <td>Full Name</td>
-                <td><input type="text" required name="fullname" placeholder="Enter Full Name"></td>
-            </tr>
-            <tr>
-                <td>Title/Course</td>
-                <td>
-                    <input type="text" required name="title1" placeholder="Enter Title/Course">
-                </td>
-            </tr>
-            <tr>
-                <td>Objective</td>
-                <td><textarea required name="obj" placeholder="Enter Objective" style="height: 100px; ; width: 75vh; overflow: auto;"></textarea></td>
-            </tr>
-        </table>
+    <main>
+        <form method="POST" action="resume" enctype="multipart/form-data">
+            <header class="title">
+                <h1>User Information</h1>
+            </header>
+            
+            <section>
+                <h2>Profile</h2>
+                <hr>
+                <div>
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter Full Name" required>
+                </div>
+                <div>
+                    <label for="title1">Title/Course</label>
+                    <input type="text" id="title1" name="title1" placeholder="Enter Title/Course" required>
+                </div>
+                <div>
+                    <label for="obj">Objective</label>
+                    <textarea id="obj" name="obj" placeholder="Enter Objective" required style="height: 100px; width: 75vh; overflow: auto;"></textarea>
+                </div>
+            </section>
 
-        <table class="contactInfo">
-            <h2>Contact Information</h2> 
-            <hr>
-            <tr>
-                <td>Contact Number</td>
-                <td><input type="tel" pattern="[0-9]{11}" required name="contactnumber" placeholder="Enter Contact Number"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" required name="email" placeholder="Enter Valid Email"></td>
-            </tr>
-            <tr>
-                <td>Website</td>
-                <td><input type="text" required name="web" placeholder="Enter your website"></td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td><input type="text" required name="address" placeholder="Enter Address"></td>
-            </tr>
-        </table>
+            <section>
+                <h2>Contact Information</h2>
+                <hr>
+                <div>
+                    <label for="contactnumber">Contact Number</label>
+                    <input type="tel" id="contactnumber" name="contactnumber" placeholder="Enter Contact Number" pattern="[0-9]{11}" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Valid Email" required>
+                </div>
+                <div>
+                    <label for="web">Website</label>
+                    <input type="text" id="web" name="web" placeholder="Enter your website" required>
+                </div>
+                <div>
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Enter Address" required>
+                </div>
+            </section>
 
-        <table class="education">
-            <h2>Educational Background</h2>
-            <hr>
-            <tr>
-                <td style="font-weight:bold;">Elementary</td>
-            </tr>
-            <tr>
-                <td>Year Graduated</td>
-                <td><input type="text" required name="year1" placeholder="Enter Year Graduated"></td>
-            </tr>
-            <tr>
-                <td>School</td>
-                <td><input type="text" required name="school1" placeholder="Enter School"></td>
-            </tr>
-            <tr>
-                <td style="font-weight:bold;">High School</td>
-            </tr>
-            <tr>
-                <td>Year Graduated</td>
-                <td><input type="text" required name="year2" placeholder="Enter Year Graduated"></td>
-            </tr>
-            <tr>
-                <td>School</td>
-                <td><input type="text" required name="school2" placeholder="Enter School"></td>
-            </tr>
-            <tr>
-                <td style="font-weight:bold;">Senior High School</td>
-            </tr>
-            <tr>
-                <td>Year Graduated</td>
-                <td><input type="text" required name="year3" placeholder="Enter Year Graduated"></td>
-            </tr>
-            <tr>
-                <td>School</td>
-                <td><input type="text" required name="school3" placeholder="Enter School"></td>
-            </tr>
-            <tr>
-                <td style="font-weight:bold;">College</td>
-            </tr>
-            <tr>
-                <td>Year Graduated</td>
-                <td><input type="text" required name="year4" placeholder="Enter Year Graduated"></td>
-            </tr>
-            <tr>
-                <td>School</td>
-                <td><input type="text" required name="school4" placeholder="Enter School"></td>
-            </tr>
-        </table>
+            <section>
+                <h2>Educational Background</h2>
+                <hr>
+                <div>
+                    <strong>Elementary</strong>
+                </div>
+                <div>
+                    <label for="year1">Year Graduated</label>
+                    <input type="text" id="year1" name="year1" placeholder="Enter Year Graduated" required>
+                </div>
+                <div>
+                    <label for="school1">School</label>
+                    <input type="text" id="school1" name="school1" placeholder="Enter School" required>
+                </div>
+                <div>
+                    <strong>High School</strong>
+                </div>
+                <div>
+                    <label for="year2">Year Graduated</label>
+                    <input type="text" id="year2" name="year2" placeholder="Enter Year Graduated" required>
+                </div>
+                <div>
+                    <label for="school2">School</label>
+                    <input type="text" id="school2" name="school2" placeholder="Enter School" required>
+                </div>
+                <div>
+                    <strong>Senior High School</strong>
+                </div>
+                <div>
+                    <label for="year3">Year Graduated</label>
+                    <input type="text" id="year3" name="year3" placeholder="Enter Year Graduated" required>
+                </div>
+                <div>
+                    <label for="school3">School</label>
+                    <input type="text" id="school3" name="school3" placeholder="Enter School" required>
+                </div>
+                <div>
+                    <strong>College</strong>
+                </div>
+                <div>
+                    <label for="year4">Year Graduated</label>
+                    <input type="text" id="year4" name="year4" placeholder="Enter Year Graduated" required>
+                </div>
+                <div>
+                    <label for="school4">School</label>
+                    <input type="text" id="school4" name="school4" placeholder="Enter School" required>
+                </div>
+            </section>
 
-        <table class="experienceForm">
-            <h2>Work Experience</h2>
-            <hr>
-            <tbody id="experienceTableBody">
-                <tr>
-                    <td>Company</td>
-                    <td><input type="text" required name="com1" placeholder="Enter Company/Organization"></td>
-                </tr>
-                <tr>
-                    <td>Year</td>
-                    <td><input type="text" required name="comyear1" placeholder="Enter Year"></td>
-                </tr>
-                <tr>
-                    <td>Position</td>
-                    <td><input type="text" required name="compos1" placeholder="Enter Position"></td>
-                </tr>
-                <tr>
-                    <td>Description</td>
-                    <td><textarea required name="comdes1" placeholder="Enter Description" style="height: 100px; width: 75vh; overflow: auto;"></textarea></td>
-                </tr>
-            </tbody>
-        </table>
+            <section>
+                <h2>Work Experience</h2>
+                <hr>
+                <div id="experienceTableBody">
+                    <div>
+                        <label for="com1">Company</label>
+                        <input type="text" id="com1" name="com1" placeholder="Enter Company/Organization" required>
+                    </div>
+                    <div>
+                        <label for="comyear1">Year</label>
+                        <input type="text" id="comyear1" name="comyear1" placeholder="Enter Year" required>
+                    </div>
+                    <div>
+                        <label for="compos1">Position</label>
+                        <input type="text" id="compos1" name="compos1" placeholder="Enter Position" required>
+                    </div>
+                    <div>
+                        <label for="comdes1">Description</label>
+                        <textarea id="comdes1" name="comdes1" placeholder="Enter Description" required style="height: 100px; width: 75vh; overflow: auto;"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="addExperience()">Add Company/Organization</button>
+            </section>
 
-        <button type="button" onclick="addExperience()">Add Company/Organization</button>
+            <section>
+                <h2>Professional Skills</h2>
+                <hr>
+                <div id="skillTable">
+                    <div>
+                        <label for="skill1">Skills</label>
+                        <input type="text" id="skill1" name="skill1" placeholder="Enter Skill" required>
+                    </div>
+                </div>
+                <button type="button" onclick="addSkillField()">Add Skill</button>
+            </section>
 
-        <script>
-            let experienceCount = 1;
+            <section>
+                <h2>Interests</h2>
+                <hr>
+                <div id="interestTable">
+                    <div>
+                        <label for="inter1">Interests</label>
+                        <input type="text" id="inter1" name="inter1" placeholder="Enter Interest" required>
+                    </div>
+                </div>
+                <button type="button" onclick="addInterestField()">Add Interest</button>
+            </section>
 
-            function addExperience() {
-                experienceCount++;
+            <section>
+                <h2>Languages</h2>
+                <hr>
+                <div id="languageTable">
+                    <div>
+                        <label for="lang1">Primary Language</label>
+                        <input type="text" id="lang1" name="lang1" placeholder="Enter Language" required>
+                    </div>
+                </div>
+                <button type="button" onclick="addLanguageField()">Add Language</button>
+            </section>
 
-                const tableBody = document.getElementById('experienceTableBody');
+            <footer class="form-footer">
+                <br>
+                <input type="submit" name="submit" value="Submit">
+            </footer>
+        </form>
+    </main>
 
-                const newRow = document.createElement('tr');
-
-                newRow.innerHTML = `
-                    <td>Company</td>
-                    <td><input type="text" required name="com${experienceCount}" placeholder="Enter Company/Organization"></td>
-                `;
-
-                tableBody.appendChild(newRow.cloneNode(true));
-
-                newRow.innerHTML = `
-                    <td>Year</td>
-                    <td><input type="text" required name="comyear${experienceCount}" placeholder="Enter Year"></td>
-                `;
-
-                tableBody.appendChild(newRow.cloneNode(true));
-
-                newRow.innerHTML = `
-                    <td>Position</td>
-                    <td><input type="text" required name="compos${experienceCount}" placeholder="Enter Position"></td>
-                `;
-
-                tableBody.appendChild(newRow.cloneNode(true));
-
-                newRow.innerHTML = `
-                    <td>Description</td>
-                    <td><textarea required name="comdes${experienceCount}" placeholder="Enter Description" style="height: 100px; width: 75vh; overflow: auto;"></textarea></td>
-                `;
-
-                tableBody.appendChild(newRow);
-            }
-        </script>
-
-        <table class="skillsForm">
-            <h2>Professional Skills</h2>
-            <hr>
-            <table id="skillTable">
-                <tr>
-                    <td>Skills</td>
-                    <td><input type="text" required name="skill1" placeholder="Enter Skill"></td>
-                </tr>
-            </table>
-        </table>
-
-        <button type="button" onclick="addSkillField()">Add Skill</button>
-
-        <script>
-            var skillCounter = 1;
-
-            function addSkillField() {
-                skillCounter++;
-                var table = document.getElementById("skillTable");
-                var newRow = table.insertRow(table.rows.length);
-                var cell1 = newRow.insertCell(0);
-                var cell2 = newRow.insertCell(1);
-
-                cell1.innerHTML = "Skills";
-                cell2.innerHTML = '<input type="text" required name="skill' + skillCounter + '" placeholder="Enter Skill">';
-            }
-        </script>
-
-        <table class="interestForm">
-            <h2>Interests</h2>
-            <hr>
-            <table id="interestTable">
-                <tr>
-                    <td>Interests</td>
-                    <td><input type="text" required name="inter1" placeholder="Enter Interest"></td>
-                </tr>
-            </table>
-        </table>
-
-        <button type="button" onclick="addInterestField()">Add Interest</button>
-
-        <script>
-            var interestCounter = 1;
-
-            function addInterestField() {
-                interestCounter++;
-                var table = document.getElementById("interestTable");
-                var newRow = table.insertRow(table.rows.length);
-                var cell1 = newRow.insertCell(0);
-                var cell2 = newRow.insertCell(1);
-
-                cell1.innerHTML = "Interests";
-                cell2.innerHTML = '<input type="text" required name="inter' + interestCounter + '" placeholder="Enter Interest">';
-            }
-        </script>
-
-        <table class="languageForm">
-            <h2>Languages</h2>
-            <hr>
-            <table id="languageTable">
-                <tr>
-                    <td>Primary Language</td>
-                    <td><input type="text" required name="lang1" placeholder="Enter Language"></td>
-                </tr>
-            </table>
-        </table>
-
-        <button type="button" onclick="addLanguageField()">Add Language</button><br>
-
-        <script>
-            var languageCounter = 1;
-
-            function addLanguageField() {
-                languageCounter++;
-                var table = document.getElementById("languageTable");
-                var newRow = table.insertRow(table.rows.length);
-                var cell1 = newRow.insertCell(0);
-                var cell2 = newRow.insertCell(1);
-
-                cell1.innerHTML = "Foreign Language";
-                cell2.innerHTML = '<input type="text" required name="lang' + languageCounter + '" placeholder="Enter Language">';
-            }
-        </script>
-
-        <div class="form-footer">
-            <br><td><input type="submit" name="submit" value="Submit"></td>
-        </div>
-    </form>
+    <script src="static/scripts/form.js"></script>
 </body>
 </html>

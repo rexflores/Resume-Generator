@@ -1,141 +1,141 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Resume</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/resume.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/resume.png') }}">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/resume.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/resume.png') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <main class="container" id="resume">
+        <header class="profileText">
+            <h1>{{ data.fullname }}</h1>
+        </header>
 
-    <body>
-        <div class="container">
-            <div class="left_Side">
-                <div class="profileText">
-                    <h2>{{ data.fullname }}<br>
-                    </h2>
+        <section class="contactInfo">
+            <h2>Contact Info</h2>
+            <ul>
+                <li>
+                    <a href="tel:{{ data.contactnumber }}" target="_blank">
+                        <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <span class="text">{{ data.contactnumber }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:{{ data.email }}" target="_blank">
+                        <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <span class="text">{{ data.email }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ data.web }}" target="_blank">
+                        <span class="icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                        <span class="text">{{ data.web }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.google.com/maps/place/{{ data.address }}" target="_blank">
+                        <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <span class="text">{{ data.address }}</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="profile">
+            <h2>Career Objective</h2>
+            <p>{{ data.obj }}</p>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <p>Class of {{ data.year1 }}</p>
+                    <p>Elementary</p>
+                    <p>{{ data.school1 }}</p>
+                </li>
+                <li>
+                    <p>Class of {{ data.year2 }}</p>
+                    <p>High School</p>
+                    <p>{{ data.school2 }}</p>
+                </li>
+                <li>
+                    <p>Class of {{ data.year3 }}</p>
+                    <p>Senior High School</p>
+                    <p>{{ data.school3 }}</p>
+                </li>
+                <li>
+                    <p>Class of {{ data.year4 }}</p>
+                    <p>College</p>
+                    <p>{{ data.school4 }}</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="language">
+            <h2>Languages</h2>
+            <ul>
+                {% for i in range(1, 100) %}
+                {% if data['lang' + i|string()] %}
+                <li>
+                    <span class="text">{{ data['lang' + i|string()] }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="interest">
+            <h2>Interests</h2>
+            <ul>
+                {% for i in range(1, 100) %}
+                {% if data['inter' + i|string()] %}
+                <li>
+                    <span class="text">{{ data['inter' + i|string()] }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            {% for i in range(1, 8) %}
+            {% if data['comyear' + i|string()] %}
+            <div class="experience">
+                <div class="year-company">
+                    <p>{{ data['comyear' + i|string()] }}</p>
+                    <p>{{ data['com' + i|string()] }}</p>
                 </div>
-
-                <div class="contactInfo">
-                    <h3 class="title">Contact Info</h3>
-                    <ul>
-                        <li>
-                            <a class="onclick" href="tel:{{ data.contactnumber }}" target="_blank">
-                                <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                <span class="text">{{ data.contactnumber }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="onclick" href="mailto:{{ data.email }}" target="_blank">
-                                <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                                <span class="text">{{ data.email }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="onclick" href="{{ data.web }}" target="_blank">
-                                <span class="icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
-                                <span class="text">{{ data.web }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="onclick" href="https://www.google.com/maps/place/{{ data.address }}" target="_blank">
-                                <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                <span class="text">{{ data.address }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="education">
-                    <h3 class="title">Education</h3>
-                    <ul>
-                        <li>
-                            <h5>Class of {{ data.year1 }}</h5>
-                            <h4>Elementary</h4>
-                            <h4>{{ data.school1 }}</h4>
-                        </li>
-                        <li>
-                            <h5>Class of {{ data.year2 }}</h5>
-                            <h4>High School</h4>
-                            <h4>{{ data.school2 }}</h4>
-                        </li>
-                        <li>
-                            <h5>Class of {{ data.year3 }}</h5>
-                            <h4>Senior High School</h4>
-                            <h4>{{ data.school3 }}</h4>
-                        </li>
-                        <li>
-                            <h5>{{ data.year4 }}</h5>
-                            <h4>College</h4>
-                            <h4>{{ data.school4 }}</h4>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="language">
-                    <h3 class="title">Languages</h3>
-                    <ul>
-                        {% for i in range(1, 100) %}
-                        {% if data['lang' + i|string()] %}
-                        <li>
-                            <span class="text">{{ data['lang' + i|string()] }}</span>
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="about interest">
-                    <h3 class="title">Interests</h3>
-                    <ul>
-                        {% for i in range(1, 100) %}
-                        {% if data['inter' + i|string()] %}
-                        <li>
-                            <span class="text">{{ data['inter' + i|string()] }}</span>
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-
-            <div class="right_Side">
-                <div class="about">
-                    <h2 class="title2">Profile</h2>
-                    <p>{{ data.obj }}</p>
-                </div>
-
-                <div class="about">
-                    <h2 class="title2">Work Experience</h2>
-                    {% for i in range(1, 8) %}
-                    {% if data['comyear' + i|string()] %}
-                    <div class="box">
-                        <div class="year_company">
-                            <h5>{{ data['comyear' + i|string()] }}</h5>
-                            <h5>{{ data['com' + i|string()] }}</h5>
-                        </div>
-                        <div class="text">
-                            <h4>{{ data['compos' + i|string()] }}</h4>
-                            <p>{{ data['comdes' + i|string()] }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-
-                <div class="about skills">
-                    <h2 class="title2">Professional Skills</h2>
-                    <div class="box">
-                        {% for i in range(1, 100) %}
-                        {% if data['skill' + i|string()] %}
-                        <h4>{{ data['skill' + i|string()] }}</h4>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
+                <div class="position-description">
+                    <p>{{ data['compos' + i|string()] }}</p>
+                    <p>{{ data['comdes' + i|string()] }}</p>
                 </div>
             </div>
-        </div>
-    </body>
+            {% endif %}
+            {% endfor %}
+        </section>
+
+        <section class="skills">
+            <h2>Professional Skills</h2>
+            <div class="skill-list">
+                {% for i in range(1, 100) %}
+                {% if data['skill' + i|string()] %}
+                <p>{{ data['skill' + i|string()] }}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <button onclick="downloadPDF()">Download PDF</button>
+
+    <script src="static/scripts/resume.js"></script>
+</body>
 </html>

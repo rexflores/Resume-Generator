@@ -1,21 +1,35 @@
-/* General styles */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     max-width: 800px;
-    margin: 20px auto;
+    margin: 50px auto;
     background: #fff;
-    padding: 20px;
+    padding: 70px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+section {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
     color: #444;
@@ -27,10 +41,12 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
-    border-bottom: 2px solid #444;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+    font-size: 1em;
+    flex: 0 0 20%; /* Adjust the width as needed */
+    margin: 0;
+    text-align: left;
+    font-weight: bold;
+    padding-right: 20px;
 }
 
 h3 {
@@ -48,6 +64,12 @@ p, li {
     margin-bottom: 10px;
 }
 
+section p {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
 /* Profile section */
 .profileText {
     text-align: center;
@@ -56,66 +78,65 @@ p, li {
 
 .profileText h1 {
     margin: 0;
+    border-bottom: 2px solid #333;
 }
 
-/* Profile section */
-.profile p {
-    margin-bottom: 20px;
-}
-
-/* Contact Info section */
-.contactInfo {
-    margin-bottom: 20px;
-}
-
-.contactInfo ul {
-    list-style: none;
-    padding: 0;
-}
-
-.contactInfo li {
+.profileText p {
+    text-align: justify;
     margin-bottom: 10px;
 }
 
-.contactInfo a {
-    color: #333;
-    text-decoration: none;
+/* Contact Info section */
+
+.profileText ul {
+    list-style: none;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap to the next line if they exceed the container width */
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-.contactInfo .icon {
+.profileText li {
     margin-right: 10px;
 }
 
-/* Education section */
-.education ul {
-    list-style: none;
-    padding: 0;
+.profileText a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
 }
 
+.profileText .icon {
+    margin-right: 12px;
+}
+
+/* Education section */
 .education li {
     margin-bottom: 10px;
 }
 
 /* Language section */
-.language ul {
-    list-style: none;
-    padding: 0;
+.language .language-list {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.language li {
-    margin-bottom: 10px;
+.language .language-list p {
+    padding-right: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
 /* Interest section */
-.interest ul {
-    list-style: none;
-    padding: 0;
+.interest .interest-list {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.interest li {
-    margin-bottom: 10px;
+.interest .interest-list p {
+    padding-right: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
 /* Work Experience section */
@@ -131,6 +152,7 @@ p, li {
 
 .work-experience .position-description p {
     margin: 5px 0;
+    text-align: justify;
 }
 
 /* Skills section */
@@ -143,8 +165,28 @@ p, li {
     background: #444;
     color: #fff;
     padding: 5px 10px;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     border-radius: 5px;
+}
+
+/* Resume footer styles */
+footer.resume-footer {
+    text-align: center;
+    margin: 20px;
+}
+
+footer.resume-footer button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer.resume-footer button:hover {
+    background-color: #218838;
 }
 
 /* Media queries */

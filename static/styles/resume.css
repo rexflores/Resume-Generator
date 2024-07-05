@@ -123,13 +123,37 @@ section p {
     margin-bottom: 20px;
 }
 
-.work-experience .experience .com, .compos {
+.work-experience .experience .com, .compos{
     font-weight: bold;
 }
 
 .work-experience .year-description p {
     margin: 5px 0;
     text-align: justify;
+}
+
+/* Language section */
+.language .language-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.language .language-list p {
+    padding-right: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+/* Interest section */
+.interest .interest-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.interest .interest-list p {
+    padding-right: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
 /* Skills section */

@@ -15,10 +15,6 @@
     <main class="container" id="resume">
         <header class="profileText">
             <h1>{{ data.fullname }}</h1>
-        </header>
-
-        <section class="contactInfo">
-            <h2>Contact Info</h2>
             <ul>
                 <li>
                     <a href="tel:{{ data.contactnumber }}" target="_blank">
@@ -45,52 +41,20 @@
                     </a>
                 </li>
             </ul>
-        </section>
-
-        <section class="profile">
-            <h2>Career Objective</h2>
             <p>{{ data.obj }}</p>
-        </section>
+        </header>
 
         <section class="education">
             <h2>Education</h2>
-            <ul>
-                {% for i in range(1, 100) %}
-                {% if data['year' + i|string()] %}
-                <li>
-                    <p>{{ data['year' + i|string()] }}</p>
-                    <p>{{ data['educLevel' + i|string()] }}</p>
-                    <p>{{ data['school' + i|string()] }}</p>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </section>
-
-        <section class="language">
-            <h2>Languages</h2>
-            <ul>
-                {% for i in range(1, 100) %}
-                {% if data['lang' + i|string()] %}
-                <li>
-                    <span class="text">{{ data['lang' + i|string()] }}</span>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </section>
-
-        <section class="interest">
-            <h2>Interests</h2>
-            <ul>
-                {% for i in range(1, 100) %}
-                {% if data['inter' + i|string()] %}
-                <li>
-                    <span class="text">{{ data['inter' + i|string()] }}</span>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
+            {% for i in range(1, 100) %}
+            {% if data['year' + i|string()] %}
+            <div class="educ">
+                <p>{{ data['year' + i|string()] }}</p>
+                <p>{{ data['educLevel' + i|string()] }}</p>
+                <p>{{ data['school' + i|string()] }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
         </section>
 
         <section class="work-experience">
@@ -111,6 +75,28 @@
             {% endfor %}
         </section>
 
+        <section class="language">
+            <h2>Languages</h2>
+            <div class="language-list">
+                {% for i in range(1, 100) %}
+                {% if data['lang' + i|string()] %}
+                <p>{{ data['lang' + i|string()] }}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="interest">
+            <h2>Interests</h2>
+            <div class="interest-list">
+                {% for i in range(1, 100) %}
+                {% if data['inter' + i|string()] %}
+                <p>{{ data['inter' + i|string()] }}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
         <section class="skills">
             <h2>Professional Skills</h2>
             <div class="skill-list">
@@ -123,7 +109,9 @@
         </section>
     </main>
 
-    <button onclick="downloadPDF()">Download PDF</button>
+    <footer class="resume-footer">
+        <button onclick="downloadPDF()">Download PDF</button>
+    </footer>
 
     <script src="static/scripts/resume.js"></script>
 </body>
